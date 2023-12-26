@@ -1,0 +1,13 @@
+.header {
+  background: url("./bg.png") no-repeat;
+  background-position: bottom;
+  background-size: 2880px;
+  height: 466px;
+}
+
+.header_wrapper {
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
