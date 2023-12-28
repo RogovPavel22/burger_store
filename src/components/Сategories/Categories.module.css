@@ -1,0 +1,55 @@
+.categories_list {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 50px;
+  overflow-x: auto;
+}
+
+.categories_btn {
+  padding: 8px 14px 8px 46px;
+  border-radius: 50px;
+  font-family: Nunito;
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: 14px 8px;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.categories_btn:hover,
+.categories_btn:focus {
+  outline: 1px solid #f86310;
+  outline-offset: -1px;
+}
+
+.active {
+  pointer-events: none;
+  background-color: #ffab08;
+}
+
+.active:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .categories_list {
+    gap: 12px;
+  }
+
+  .categories_btn {
+    padding: 8px 8px 8px 40px;
+    background-position: 8px 3px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 460px) {
+  .categories_list {
+    gap: 8px;
+  }
+}

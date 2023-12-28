@@ -1,0 +1,121 @@
+.basket {
+  margin-top: 72px;
+  background-color: #fff;
+  padding: 24px 16px;
+  border-radius: 18px;
+  width: 300px;
+}
+
+.basket_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.head_count {
+  font-size: 12px;
+  padding: 2px 16px;
+  background-color: #f2f2f3;
+  border-radius: 6px;
+}
+
+.basket_body {
+  margin-bottom: 16px;
+}
+
+.card {
+  padding: 16px 0;
+  border-bottom: 1px solid #f2f2f3;
+}
+
+.card:first-child {
+  border-top: 1px solid #f2f2f3;
+}
+
+.product {
+  display: flex;
+  gap: 6px;
+}
+
+.img {
+  width: 64px;
+  height: 52px;
+}
+
+.img_item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card_dscr {
+  font-size: 12px;
+}
+
+.card_name {
+  margin-bottom: 1px;
+  height: 16px;
+}
+
+.weight {
+  display: block;
+  color: #b1b1b1;
+  margin-bottom: 6px;
+  height: 16px;
+}
+
+.price {
+  display: block;
+  height: 16px;
+}
+
+.sum {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  line-height: 130%;
+  margin-bottom: 24px;
+}
+
+.order_btn {
+  color: #fff;
+  font-family: Nunito;
+  font-size: 16px;
+  width: 100%;
+  padding: 11px 0;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  background: #ff7020;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.order_btn:hover {
+  background: #ffab08;
+}
+
+.order_btn:focus {
+  outline: none;
+  background: #f86310;
+}
+
+.delivery {
+  font-size: 12px;
+  padding: 4px 0 4px 32px;
+  background: url(./img/delivery.png) no-repeat;
+  background-size: 24px;
+}

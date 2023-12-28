@@ -57,6 +57,11 @@
   color: #ffab08;
 }
 
+.social_item:focus {
+  outline: none;
+  color: #ffab08;
+}
+
 .contacts_title {
   margin-bottom: 24px;
 }
