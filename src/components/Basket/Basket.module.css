@@ -4,6 +4,7 @@
   padding: 24px 16px;
   border-radius: 18px;
   width: 300px;
+  align-self: flex-start;
 }
 
 .basket_head {
@@ -119,3 +120,14 @@
   background: url(./img/delivery.png) no-repeat;
   background-size: 24px;
 }
+
+/* .close {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.8s;
+}
+
+.open {
+  max-height: 700px;
+} */
+
