@@ -1,18 +1,22 @@
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addBasketList, removeProduct } from "../../redux/slices/basketSlice";
 import style from "./Count.module.css";
 
-export function Count() {
-  const [count, setCount] = useState(1)
-
-  function minus() {
-    return count > 1 && setCount(count - 1)
-  }
+export function Count({ item }) {
+  const dispatch = useDispatch();
 
   return (
     <div className={style.count}>
-      <button className={style.count_btn} onClick={minus}>-</button>
-      <span className={style.count_num}>{count}</span>
-      <button className={style.count_btn} onClick={() => setCount(count + 1)}>+</button>
+      <button className={style.count_btn} onClick={() => dispatch(removeProduct(item))}>
+        -
+      </button>
+      <span className={style.count_num}>{item.count}</span>
+      <button
+        className={style.count_btn}
+        onClick={() => dispatch(addBasketList(item))}
+      >
+        +
+      </button>
     </div>
   );
 }

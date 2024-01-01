@@ -8,10 +8,10 @@
 }
 
 .basket_head {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
 }
 
 .title {
@@ -28,6 +28,7 @@
 
 .basket_body {
   margin-bottom: 16px;
+  margin-top: 12px;
 }
 
 .card {
@@ -97,7 +98,6 @@
   font-size: 16px;
   width: 100%;
   padding: 11px 0;
-  margin-bottom: 8px;
   border-radius: 12px;
   background: #ff7020;
   border: none;
@@ -109,25 +109,93 @@
   background: #ffab08;
 }
 
-.order_btn:focus {
+.order_btn:active {
+  background: #f86310;
+}
+
+.order_btn:focus-visible {
   outline: none;
   background: #f86310;
 }
 
 .delivery {
+  display: block;
   font-size: 12px;
-  padding: 4px 0 4px 32px;
+  padding: 5px 0 5px 32px;
+  margin-top: 8px;
   background: url(./img/delivery.png) no-repeat;
   background-size: 24px;
+  background-position-y: bottom;
 }
 
-/* .close {
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.8s;
+.empty {
+  padding-top: 16px;
+  font-size: 16px;
+  line-height: 130%;
 }
 
-.open {
-  max-height: 700px;
-} */
+@media (max-width: 1023px) {
+  .basket {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 0;
+    padding: 16px 10px;
+    transition: all 0.8s;
+  }
 
+  .shadow {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .head_count {
+    font-size: 10px;
+  }
+
+  .empty {
+    display: none;
+  }
+
+  .close {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.6s;
+  }
+
+  .open {
+    max-height: 700px;
+  }
+
+  .basket_head::after {
+    content: "";
+    position: absolute;
+    border-radius: 12px;
+    top: -16px;
+    bottom: -16px;
+    left: -10px;
+    right: -10px;
+    cursor: pointer;
+  }
+
+  .basket_body {
+    margin-top: 8px;
+  }
+
+  .sum {
+    font-size: 12px;
+    margin-bottom: 19px;
+  }
+
+  .order_btn {
+    font-size: 12px;
+  }
+
+  .delivery {
+    font-size: 10px;
+    padding: 6px 0 6px 32px;
+  }
+}

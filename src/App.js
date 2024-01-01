@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <main>
+      <main className="main">
         <div className="container">
           <Categories />
           <section className="menu">

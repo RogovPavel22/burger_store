@@ -1,5 +1,8 @@
 .categories_list {
   display: flex;
+  /* justify-content: center; */
+  margin: 0 auto;
+  max-width: 1231px;
   gap: 24px;
   margin-bottom: 50px;
   overflow-x: auto;
@@ -34,6 +37,12 @@
 
 .active:focus {
   outline: none;
+}
+
+@media (max-width: 1023px) {
+  .categories_list {
+    margin-bottom: 30px;
+  }
 }
 
 @media (max-width: 768px) {

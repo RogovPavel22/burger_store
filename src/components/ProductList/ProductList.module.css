@@ -68,7 +68,11 @@
   background: #ffab08;
 }
 
-.card_btn:focus {
+.card_btn:active {
+  background: #f86310;
+}
+
+.card_btn:focus-visible {
   outline: none;
   color: #fff;
   background: #f86310;
