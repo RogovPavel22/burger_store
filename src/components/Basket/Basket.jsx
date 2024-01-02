@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Count } from "../Count/Count";
 import { API_URL } from "../../const";
@@ -6,24 +6,35 @@ import clsx from "clsx";
 import style from "./Basket.module.css";
 
 export function Basket() {
-  const [close, setClose] = useState(true);
+  const [closeBasket, setcloseBasket] = useState(true);
   const { basketList, totalCount, totalPrice } = useSelector(
     (state) => state.basketList
   );
+
+  useEffect(() => {
+    if (basketList.length === 0) {
+      setcloseBasket(true);
+    }
+  }, [basketList]);
 
   return (
     <div
       className={clsx(
         style.basket,
-        !close && basketList.length > 0 && style.shadow
+        !closeBasket && style.shadow,
+        basketList.length > 0 && style.open_width
       )}
     >
-      <div className={style.basket_head} onClick={() => setClose(!close)}>
+      <div
+        className={style.basket_head}
+        style={basketList.length === 0 ? { pointerEvents: "none" } : { pointerEvents: "all" }}
+        onClick={() => setcloseBasket(!closeBasket)}
+      >
         <h3 className={style.title}>Корзина</h3>
-        <span className={style.head_count}>{totalCount}</span>
+        <p className={style.head_count}>{totalCount}</p>
       </div>
       {basketList.length ? (
-        <div className={clsx(style.close, !close && style.open)}>
+        <div className={clsx(style.close, !closeBasket && style.open)}>
           <ul className={style.basket_body}>
             {basketList.map((item) => {
               return (

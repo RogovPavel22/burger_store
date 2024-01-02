@@ -1,3 +1,9 @@
+.no_product {
+  font-size: 16px;
+  line-height: 130%;
+  width: 300px;
+}
+
 .product_list_title {
   font-size: 40px;
   font-weight: 600;
@@ -59,6 +65,7 @@
   background: #f2f2f3;
   font-family: Nunito;
   font-size: 16px;
+  line-height: 100%;
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -85,7 +92,57 @@
 }
 
 @media (max-width: 1023px) {
+  .product_list_title {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
   .cards_wrapper {
     grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .card {
+    padding: 4px;
+  }
+
+  .card_img {
+    margin-bottom: 10px;
+  }
+
+  .product_list {
+    margin-top: 78px;
+  }
+
+  .price {
+    margin-bottom: 4px;
+    font-size: 16px;
+  }
+
+  .card_name {
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+
+  .weight {
+    margin-bottom: 7px;
+    font-size: 12px;
+  }
+
+  .card_btn {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  .cards_wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 460px) {
+  .cards_wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 }

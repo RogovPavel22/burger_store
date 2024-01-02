@@ -1,19 +1,38 @@
 .count {
-    border-radius: 12px;
-    background: #f2f2f3;
-  }
-  
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  border-radius: 12px;
+  background: #f2f2f3;
+}
+
+.count_btn {
+  font-family: Nunito;
+  font-size: 16px;
+  background-color: inherit;
+  border: none;
+  padding: 9px 12px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.count_btn:focus {
+  outline-offset: -1px;
+}
+
+.count_num {
+  font-size: 16px;
+  padding: 0 5px;
+}
+
+@media (max-width: 1023px) {
   .count_btn {
-    font-family: Nunito;
     font-size: 12px;
-    background-color: inherit;
-    border: none;
     padding: 7px 8px;
-    cursor: pointer;
-    border-radius: 12px;
   }
-  
+
   .count_num {
     font-size: 12px;
     padding: 0 10px;
   }
+}

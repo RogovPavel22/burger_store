@@ -25,30 +25,34 @@ export function ProductList() {
       <h2 className={style.product_list_title}>
         {category[activeCategory]?.rus}
       </h2>
-      <div className={style.cards_wrapper}>
-        {product.map((item, i) => {
-          return (
-            <article key={item.id} className={style.card}>
-              <div className={style.card_img}>
-                <img
-                  className={style.img_item}
-                  src={`${API_URL}/${item.image}`}
-                  alt={item.category}
-                />
-              </div>
-              <span className={style.price}>{item.price}₽</span>
-              <h5 className={style.card_name}>{item.title}</h5>
-              <span className={style.weight}>{item.weight}г</span>
-              <button
-                className={style.card_btn}
-                onClick={() => getItemProduct(i)}
-              >
-                Добавить
-              </button>
-            </article>
-          );
-        })}
-      </div>
+      {product.length !== 0 ? (
+        <div className={style.cards_wrapper}>
+          {product.map((item, i) => {
+            return (
+              <article key={item.id} className={style.card}>
+                <div className={style.card_img}>
+                  <img
+                    className={style.img_item}
+                    src={`${API_URL}/${item.image}`}
+                    alt={item.category}
+                  />
+                </div>
+                <span className={style.price}>{item.price}₽</span>
+                <h5 className={style.card_name}>{item.title}</h5>
+                <span className={style.weight}>{item.weight}г</span>
+                <button
+                  className={style.card_btn}
+                  onClick={() => getItemProduct(i)}
+                >
+                  Добавить
+                </button>
+              </article>
+            );
+          })}
+        </div>
+      ) : (
+        <div className={style.cards_wrapper}><p className={style.no_product}>К сожалению в данный момент эта категория товаров отсутствует :(</p></div>
+      )}
     </div>
   );
 }

@@ -1,6 +1,5 @@
 .categories_list {
   display: flex;
-  /* justify-content: center; */
   margin: 0 auto;
   max-width: 1231px;
   gap: 24px;

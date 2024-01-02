@@ -21,7 +21,7 @@
 
 .head_count {
   font-size: 12px;
-  padding: 2px 16px;
+  padding: 4px 16px;
   background-color: #f2f2f3;
   border-radius: 6px;
 }
@@ -32,6 +32,9 @@
 }
 
 .card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 16px 0;
   border-bottom: 1px solid #f2f2f3;
 }
@@ -57,19 +60,12 @@
   border-radius: 8px;
 }
 
-.card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .card_dscr {
   font-size: 12px;
 }
 
 .card_name {
   margin-bottom: 1px;
-  height: 16px;
 }
 
 .weight {
@@ -129,7 +125,8 @@
 }
 
 .empty {
-  padding-top: 16px;
+  display: block;
+  margin-top: 16px;
   font-size: 16px;
   line-height: 130%;
 }
@@ -141,11 +138,21 @@
     top: 0;
     margin-top: 0;
     padding: 16px 10px;
+    width: auto;
+    max-width: 145px;
     transition: all 0.8s;
   }
 
   .shadow {
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
+  }
+
+  .open_width {
+    max-width: 300px;
+  }
+
+  .basket_head {
+    gap: 27px;
   }
 
   .title {
@@ -154,6 +161,7 @@
 
   .head_count {
     font-size: 10px;
+    padding: 3px 13px;
   }
 
   .empty {
@@ -163,7 +171,7 @@
   .close {
     max-height: 0;
     overflow: hidden;
-    transition: all 0.6s;
+    transition: all 1s ease;
   }
 
   .open {
@@ -183,6 +191,7 @@
 
   .basket_body {
     margin-top: 8px;
+    width: 280px;
   }
 
   .sum {
@@ -197,5 +206,16 @@
   .delivery {
     font-size: 10px;
     padding: 6px 0 6px 32px;
+  }
+}
+
+@media (max-width: 460px) {
+  .basket {
+    right: 0;
+    max-width: none;
+  }
+
+  .basket_body {
+    width: auto;
   }
 }
