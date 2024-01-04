@@ -1,0 +1,238 @@
+.modal_container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0 15px;
+}
+
+
+.modal {
+  position: relative;
+  width: 684px;
+  padding: 24px 24px 36px 24px;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+.modal_head {
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+.btn_close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 0;
+  border: none;
+  background-color: inherit;
+  height: 24px;
+}
+
+.btn_close:focus {
+  outline-color: #f86310;
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+
+.modal_body {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 38px;
+}
+
+.img_wrapper {
+  max-width: 276px;
+  align-self: center;
+}
+
+.img_item {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+.modal_text {
+  max-width: 344px;
+}
+
+.descr {
+  font-size: 16px;
+  line-height: 130%;
+  margin-bottom: 10px;
+}
+
+.ingredients_list {
+  font-size: 12px;
+  line-height: 130%;
+  margin-bottom: 4px;
+}
+
+.list_caption {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.ingredients_item {
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+
+.ingredients_item:last-child {
+  margin-bottom: 0;
+}
+
+.product_weight {
+  color: #b1b1b1;
+  font-size: 12px;
+  line-height: 130%;
+}
+
+.modal_footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer_wrap {
+  display: flex;
+  gap: 16px;
+}
+
+.add_btn {
+  color: #fff;
+  font-family: Nunito;
+  font-size: 16px;
+  padding: 9px 32px;
+  width: 276px;
+  border-radius: 12px;
+  background: #ff7020;
+  border: none;
+  transition: all 0.2s;
+}
+
+.add_btn:hover {
+  background: #ffab08;
+}
+
+.add_btn:focus-visible {
+  outline: none;
+  background: #f86310;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 130%;
+}
+
+@media (max-width: 770px) {
+  .modal {
+    width: 524px;
+    padding: 16px 16px 24px 16px;
+  }
+
+  .modal_head {
+    margin-bottom: 16px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .modal_body {
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .modal_text {
+    max-width: 258px;
+  }
+
+  .descr {
+    font-size: 12px;
+  }
+
+  .ingredients_list {
+    font-size: 10px;
+  }
+
+  .product_weight {
+    font-size: 10px;
+  }
+
+  .footer_wrap {
+    gap: 8px;
+  }
+
+  .add_btn {
+    font-size: 12px;
+    padding: 7px 32px;
+    width: 218px;
+  }
+}
+
+@media (max-width: 570px) {
+  .modal {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    padding: 32px 10px;
+  }
+
+  .modal_head {
+    margin-bottom: 12px;
+  }
+
+  .btn_close {
+    top: 10px;
+    right: 10px;
+  }
+
+  .modal_body {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+
+  .img_wrapper {
+    max-width: 400px;
+    align-self: flex-start;
+  }
+
+  .modal_text {
+    max-width: 400px;
+  }
+
+  .modal_footer {
+    margin-top: auto;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer_wrap {
+    align-self: flex-start;
+  }
+
+  .price {
+    font-size: 16px;
+    align-self: flex-end;
+  }
+}

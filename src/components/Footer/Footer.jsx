@@ -26,7 +26,6 @@ export function Footer() {
                     height="36"
                     viewBox="0 0 36 36"
                     fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       id="Vector"
@@ -40,7 +39,6 @@ export function Footer() {
                     height="36"
                     viewBox="0 0 36 36"
                     fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       id="Vector"
@@ -53,8 +51,8 @@ export function Footer() {
           </div>
         </div>
         <div className={style.copyright}>
-            <p>© YouMeal, 2022</p>
-            <p>Design: Anastasia Ilina</p>
+          <p>© YouMeal, 2022</p>
+          <p>Design: Anastasia Ilina</p>
         </div>
       </div>
     </footer>

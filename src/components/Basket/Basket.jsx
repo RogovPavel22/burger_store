@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { addBasketList, removeProduct } from "../../redux/slices/basketSlice";
 import { Count } from "../Count/Count";
 import { API_URL } from "../../const";
 import clsx from "clsx";
@@ -27,8 +28,12 @@ export function Basket() {
     >
       <div
         className={style.basket_head}
-        style={basketList.length === 0 ? { pointerEvents: "none" } : { pointerEvents: "all" }}
-        onClick={() => setcloseBasket(!closeBasket)}
+        style={
+          basketList.length === 0
+            ? { pointerEvents: "none" }
+            : { pointerEvents: "all" }
+        }
+        onClick={() => setcloseBasket(false)}
       >
         <h3 className={style.title}>Корзина</h3>
         <p className={style.head_count}>{totalCount}</p>
@@ -53,7 +58,7 @@ export function Basket() {
                       <span className={style.price}>{item.price}₽</span>
                     </div>
                   </div>
-                  <Count item={item} />
+                  <Count item={item} plus={addBasketList} minus={removeProduct}/>
                 </li>
               );
             })}
@@ -64,9 +69,17 @@ export function Basket() {
               <span>{totalPrice}₽</span>
             </div>
             <button className={style.order_btn}>Оформить заказ</button>
-            {totalPrice >= 599 && (
-              <span className={style.delivery}>Бесплатная доставка</span>
-            )}
+            <div className={style.footer_bot}>
+              {totalPrice >= 599 && (
+                <span className={style.delivery}>Бесплатная доставка</span>
+              )}
+              <button
+                className={style.btn_close}
+                onClick={() => setcloseBasket(true)}
+              >
+                Свернуть
+              </button>
+            </div>
           </div>
         </div>
       ) : (

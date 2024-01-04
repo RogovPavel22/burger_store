@@ -27,6 +27,7 @@
 .card_img {
   margin-bottom: 16px;
   max-width: 276px;
+  cursor: pointer;
 }
 
 .img_item {
@@ -66,7 +67,6 @@
   font-family: Nunito;
   font-size: 16px;
   line-height: 100%;
-  cursor: pointer;
   transition: background 0.2s;
 }
 

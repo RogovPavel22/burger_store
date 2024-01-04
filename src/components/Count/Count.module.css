@@ -12,12 +12,13 @@
   background-color: inherit;
   border: none;
   padding: 9px 12px;
-  cursor: pointer;
+
   border-radius: 12px;
 }
 
 .count_btn:focus {
-  outline-offset: -1px;
+  outline-color: #f86310;
+  outline-offset: -3px;
 }
 
 .count_num {

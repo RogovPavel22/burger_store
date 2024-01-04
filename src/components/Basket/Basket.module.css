@@ -97,7 +97,6 @@
   border-radius: 12px;
   background: #ff7020;
   border: none;
-  cursor: pointer;
   transition: background 0.2s;
 }
 
@@ -114,14 +113,33 @@
   background: #f86310;
 }
 
+.footer_bot {
+  margin-top: 8px;
+  display: flex;
+}
+
 .delivery {
   display: block;
   font-size: 12px;
   padding: 5px 0 5px 32px;
-  margin-top: 8px;
   background: url(./img/delivery.png) no-repeat;
   background-size: 24px;
   background-position-y: bottom;
+}
+
+.btn_close {
+  color: #b1b1b1;
+  font-family: Nunito;
+  font-size: 10px;
+  line-height: normal;
+  border: none;
+  background-color: inherit;
+  transition: all 0.2s;
+  display: none;
+}
+
+.btn_close:hover {
+  color: #ffab08;
 }
 
 .empty {
@@ -186,7 +204,6 @@
     bottom: -16px;
     left: -10px;
     right: -10px;
-    cursor: pointer;
   }
 
   .basket_body {
@@ -206,6 +223,20 @@
   .delivery {
     font-size: 10px;
     padding: 6px 0 6px 32px;
+  }
+
+  .footer_bot {
+    justify-content: end;
+  }
+
+  .delivery {
+    margin-right: auto;
+  }
+
+  .btn_close {
+    display: block;
+    padding: 5px 10px;
+    padding-right: 0;
   }
 }
 

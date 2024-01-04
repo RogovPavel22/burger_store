@@ -31,21 +31,6 @@ export const basketSlice = createSlice({
       );
     },
 
-    // addProduct: (state, action) => {
-    //   const basketItem = state.basketList.find(
-    //     (item) => item.id === action.payload.id
-    //   );
-    //   basketItem.count += 1;
-    //   state.totalCount = state.basketList.reduce(
-    //     (acum, item) => acum + item.count,
-    //     0
-    //   );
-    //   state.totalPrice = state.basketList.reduce(
-    //     (acum, item) => acum + item.count * item.price,
-    //     0
-    //   );
-    // },
-
     removeProduct: (state, action) => {
       const basketItem = state.basketList.find(
         (item) => item.id === action.payload.id
@@ -54,7 +39,30 @@ export const basketSlice = createSlice({
       if (basketItem.count > 1) {
         basketItem.count -= 1;
       } else {
-        state.basketList = state.basketList.filter((item) => item.id !== basketItem.id);
+        state.basketList = state.basketList.filter(
+          (item) => item.id !== basketItem.id
+        );
+      }
+
+      state.totalCount = state.basketList.reduce(
+        (acum, item) => acum + item.count,
+        0
+      );
+      state.totalPrice = state.basketList.reduce(
+        (acum, item) => acum + item.count * item.price,
+        0
+      );
+    },
+
+    addBasketListFromModal: (state, action) => {
+      const basketItem = state.basketList.find(
+        (item) => item.id === action.payload.id
+      );
+
+      if (basketItem) {
+        basketItem.count = basketItem.count + action.payload.count;
+      } else {
+        state.basketList.push(action.payload);
       }
 
       state.totalCount = state.basketList.reduce(
@@ -69,5 +77,6 @@ export const basketSlice = createSlice({
   },
 });
 
-export const { addBasketList, removeProduct } = basketSlice.actions;
+export const { addBasketList, removeProduct, addBasketListFromModal } =
+  basketSlice.actions;
 export default basketSlice.reducer;
