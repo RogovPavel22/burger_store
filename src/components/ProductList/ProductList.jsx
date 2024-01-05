@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchProduct } from "../../redux/slices/productSlice";
 import { addBasketList } from "../../redux/slices/basketSlice";
-import { isOpen } from "../../redux/slices/modalProductSlice";
+import { isOpen } from "../../redux/slices/modalSlice";
+import { addProductModal } from "../../redux/slices/modalProductSlice";
 import { API_URL } from "../../const";
 import style from "./ProductList.module.css";
 
@@ -21,6 +22,11 @@ export function ProductList() {
     dispatch(addBasketList(product[i]));
   }
 
+  function openModal(item) {
+    dispatch(addProductModal(item));
+    dispatch(isOpen());
+  }
+
   return (
     <div className={style.product_list}>
       <h2 className={style.product_list_title}>
@@ -31,10 +37,7 @@ export function ProductList() {
           {product.map((item, i) => {
             return (
               <article key={item.id} className={style.card}>
-                <div
-                  className={style.card_img}
-                  onClick={() => dispatch(isOpen(item))}
-                >
+                <div className={style.card_img} onClick={() => openModal(item)}>
                   <img
                     className={style.img_item}
                     src={`${API_URL}/${item.image}`}

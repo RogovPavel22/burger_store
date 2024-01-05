@@ -1,6 +1,7 @@
 import { Basket } from "./components/Basket";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { Modal } from "./components/Modal";
 import { ModalProduct } from "./components/ModalProduct/ModalProduct";
 import { ProductList } from "./components/ProductList/ProductList";
 import { Categories } from "./components/Сategories";
@@ -19,7 +20,9 @@ function App() {
         </div>
       </main>
       <Footer />
-      <ModalProduct />
+      <Modal>
+        <ModalProduct />
+      </Modal>
     </>
   );
 }
