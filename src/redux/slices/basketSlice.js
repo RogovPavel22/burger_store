@@ -74,9 +74,19 @@ export const basketSlice = createSlice({
         0
       );
     },
+
+    clearBasketList: (state) => {
+      state.basketList = [];
+      state.totalCount = 0;
+      state.totalPrice = 0;
+    },
   },
 });
 
-export const { addBasketList, removeProduct, addBasketListFromModal } =
-  basketSlice.actions;
+export const {
+  addBasketList,
+  removeProduct,
+  addBasketListFromModal,
+  clearBasketList,
+} = basketSlice.actions;
 export default basketSlice.reducer;

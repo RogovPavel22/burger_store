@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchProduct } from "../../redux/slices/productSlice";
 import { addBasketList } from "../../redux/slices/basketSlice";
-import { isOpen } from "../../redux/slices/modalSlice";
 import { addProductModal } from "../../redux/slices/modalProductSlice";
+import { isOpenProduct } from "../../redux/slices/modalSlice";
 import { API_URL } from "../../const";
 import style from "./ProductList.module.css";
 
@@ -24,7 +24,7 @@ export function ProductList() {
 
   function openModal(item) {
     dispatch(addProductModal(item));
-    dispatch(isOpen());
+    dispatch(isOpenProduct());
   }
 
   return (

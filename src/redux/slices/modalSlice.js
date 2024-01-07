@@ -1,36 +1,68 @@
 import { createSlice } from "@reduxjs/toolkit";
+// отключене скрола у модалки
+let scroll = 0;
+function stopScroll() {
+  const scrollPosition = window.scrollY;
+  scroll = scrollPosition;
+  document.querySelectorAll(".modal_content_wrapper").forEach(item => {
+    item.style.marginRight = `${
+      window.innerWidth - document.body.offsetWidth
+    }px`
+  })
+  document.body.style.cssText = `
+  overflow: hidden;
+  position: fixed;
+  top: -${scrollPosition}px;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  padding-right: ${window.innerWidth - document.body.offsetWidth}px;
+  `;
+}
+
+function addScroll() {
+  document.body.style.cssText = ``;
+  document.querySelectorAll(".modal_content_wrapper").forEach(item => {
+    item.style.marginRight = `0px`
+  })
+  window.scroll({ top: scroll });
+}
 
 const initialState = {
-  active: false,
+  activeProduct: false,
+  activeDelivery: false,
 };
 
 export const modalSlice = createSlice({
   name: "modal",
   initialState,
   reducers: {
-    isOpen: (state) => {
-      document.querySelector("body").classList.add("offcsroll");
-
-      // ширина скрола
-      const div = document.createElement("div");
-      div.style.overflowY = "scroll";
-      div.style.width = "50px";
-      div.style.height = "50px";
-      document.body.append(div);
-      const scrollWidth = div.offsetWidth - div.clientWidth;
-      div.remove();
-
-      document.querySelector("body").style.marginRight = `${scrollWidth}px`;
-      state.active = true;
+    isOpenProduct: (state) => {
+      stopScroll();
+      state.activeProduct = true;
     },
 
-    isClose: (state) => {
-      document.querySelector("body").classList.remove("offcsroll");
-      document.querySelector("body").style.marginRight = `0px`;
-      state.active = false;
+    isCloseProduct: (state) => {
+      addScroll();
+      state.activeProduct = false;
+    },
+
+    isOpenDelivery: (state) => {
+      stopScroll();
+      state.activeDelivery = true;
+    },
+
+    isCloseDelivery: (state) => {
+      addScroll();
+      state.activeDelivery = false;
     },
   },
 });
 
-export const { isOpen, isClose } = modalSlice.actions;
+export const {
+  isOpenProduct,
+  isCloseProduct,
+  isOpenDelivery,
+  isCloseDelivery,
+} = modalSlice.actions;
 export default modalSlice.reducer;

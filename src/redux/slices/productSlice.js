@@ -5,7 +5,7 @@ export const fetchProduct = createAsyncThunk(
   "product/fetch",
   async (category) => {
     const response = await fetch(`${API_URL}${POSTFIX}?category=${category}`);
-    return response.json();
+    return await response.json();
   }
 );
 
@@ -23,4 +23,4 @@ const productSlice = createSlice({
   },
 });
 
-export default productSlice.reducer
+export default productSlice.reducer;

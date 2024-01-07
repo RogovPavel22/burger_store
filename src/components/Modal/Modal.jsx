@@ -1,16 +1,14 @@
 import { useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { isClose } from "../../redux/slices/modalSlice";
+import { useDispatch } from "react-redux";
 import style from "./Modal.module.css";
 import clsx from "clsx";
 
-export function Modal({ children }) {
-  const { active } = useSelector((state) => state.modal);
+export function Modal({ children, active, close }) {
   const dispatch = useDispatch();
   const modalRef = useRef(null);
 
   function closeModal(e) {
-    if (e.target === modalRef.current) dispatch(isClose());
+    if (e.target === modalRef.current) dispatch(close());
   }
 
   return (
@@ -20,9 +18,13 @@ export function Modal({ children }) {
       ref={modalRef}
     >
       <div
-        className={clsx(style.content_wrapper, active && style.active_wrapper)}
+        className={clsx("modal_content_wrapper" ,style.content_wrapper, active && style.active_wrapper)}
       >
-        <button className={style.btn_close} onClick={() => dispatch(isClose())}>
+        <button
+          className={style.btn_close}
+          tabIndex="1"
+          onClick={() => dispatch(close())}
+        >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <rect
               x="5.0752"
@@ -42,7 +44,7 @@ export function Modal({ children }) {
             />
           </svg>
         </button>
-        {active && children}
+        {children}
       </div>
     </div>
   );

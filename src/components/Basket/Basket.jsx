@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addBasketList, removeProduct } from "../../redux/slices/basketSlice";
 import { Count } from "../Count/Count";
 import { API_URL } from "../../const";
 import clsx from "clsx";
 import style from "./Basket.module.css";
+import { isOpenDelivery } from "../../redux/slices/modalSlice";
 
 export function Basket() {
   const [closeBasket, setcloseBasket] = useState(true);
   const { basketList, totalCount, totalPrice } = useSelector(
     (state) => state.basketList
   );
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (basketList.length === 0) {
@@ -58,7 +60,11 @@ export function Basket() {
                       <span className={style.price}>{item.price}₽</span>
                     </div>
                   </div>
-                  <Count item={item} plus={addBasketList} minus={removeProduct}/>
+                  <Count
+                    item={item}
+                    plus={addBasketList}
+                    minus={removeProduct}
+                  />
                 </li>
               );
             })}
@@ -68,7 +74,12 @@ export function Basket() {
               <p>Итого</p>
               <span>{totalPrice}₽</span>
             </div>
-            <button className={style.order_btn}>Оформить заказ</button>
+            <button
+              className={style.order_btn}
+              onClick={() => dispatch(isOpenDelivery())}
+            >
+              Оформить заказ
+            </button>
             <div className={style.footer_bot}>
               {totalPrice >= 599 && (
                 <span className={style.delivery}>Бесплатная доставка</span>
