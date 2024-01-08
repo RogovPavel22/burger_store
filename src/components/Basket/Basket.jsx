@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addBasketList, removeProduct } from "../../redux/slices/basketSlice";
+import {
+  addBasketList,
+  removeProduct,
+  total,
+} from "../../redux/slices/basketSlice";
+import { isOpenDelivery } from "../../redux/slices/modalSlice";
 import { Count } from "../Count/Count";
 import { API_URL } from "../../const";
 import clsx from "clsx";
 import style from "./Basket.module.css";
-import { isOpenDelivery } from "../../redux/slices/modalSlice";
 
 export function Basket() {
   const [closeBasket, setcloseBasket] = useState(true);
@@ -18,6 +22,8 @@ export function Basket() {
     if (basketList.length === 0) {
       setcloseBasket(true);
     }
+    localStorage.setItem("basketList", JSON.stringify(basketList));
+    dispatch(total());
   }, [basketList]);
 
   return (

@@ -11,15 +11,21 @@ export const fetchProduct = createAsyncThunk(
 
 const initialState = {
   product: [],
+  flagProduct: false,
 };
 
 const productSlice = createSlice({
   name: "product",
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(fetchProduct.fulfilled, (state, action) => {
-      state.product = action.payload;
-    });
+    builder
+      .addCase(fetchProduct.pending, (state) => {
+        state.flagProduct = false;
+      })
+      .addCase(fetchProduct.fulfilled, (state, action) => {
+        state.product = action.payload;
+        state.flagProduct = true;
+      });
   },
 });
 

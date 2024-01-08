@@ -12,7 +12,6 @@ export function ModalBasket() {
   const basketListForForm = basketList.map((item) => {
     return { id: item.id, count: item.count };
   });
-  console.log(basketListForForm);
 
   function inputChange(e) {
     dispatch(
@@ -38,7 +37,11 @@ export function ModalBasket() {
 
       <div className={style.delivery_form}>
         <h2 className={style.title}>Доставка</h2>
-        <form className={style.form_item} onSubmit={handleSubmitForm}>
+        <form
+          className={style.form_item}
+          onSubmit={handleSubmitForm}
+          id="basketForm"
+        >
           <fieldset className={style.fieldset}>
             <input
               type="text"
@@ -114,7 +117,7 @@ export function ModalBasket() {
               />
             </div>
           </fieldset>
-          <button className={style.form_btn} type="submit">
+          <button className={style.form_btn} type="submit" form="basketForm">
             Оформить
           </button>
         </form>

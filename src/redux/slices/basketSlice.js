@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  basketList: [],
+  basketList: JSON.parse(localStorage.getItem("basketList") || '[]'),
   totalPrice: 0,
   totalCount: 0,
 };
@@ -20,15 +20,6 @@ export const basketSlice = createSlice({
       } else {
         state.basketList.push({ ...action.payload, count: 1 });
       }
-
-      state.totalCount = state.basketList.reduce(
-        (acum, item) => acum + item.count,
-        0
-      );
-      state.totalPrice = state.basketList.reduce(
-        (acum, item) => acum + item.count * item.price,
-        0
-      );
     },
 
     removeProduct: (state, action) => {
@@ -43,15 +34,6 @@ export const basketSlice = createSlice({
           (item) => item.id !== basketItem.id
         );
       }
-
-      state.totalCount = state.basketList.reduce(
-        (acum, item) => acum + item.count,
-        0
-      );
-      state.totalPrice = state.basketList.reduce(
-        (acum, item) => acum + item.count * item.price,
-        0
-      );
     },
 
     addBasketListFromModal: (state, action) => {
@@ -64,7 +46,9 @@ export const basketSlice = createSlice({
       } else {
         state.basketList.push(action.payload);
       }
+    },
 
+    total: (state) => {
       state.totalCount = state.basketList.reduce(
         (acum, item) => acum + item.count,
         0
@@ -87,6 +71,7 @@ export const {
   addBasketList,
   removeProduct,
   addBasketListFromModal,
+  total,
   clearBasketList,
 } = basketSlice.actions;
 export default basketSlice.reducer;
